@@ -1,0 +1,197 @@
+Tuan 4:
+Web Quan ly thu vien Code (giao dien)
+
+<apex:page >
+
+<html>
+<head>
+
+<title>Quan ly thu vien</title>
+<meta charset="UTF-8"/>
+
+<style>
+
+    html, body {
+      border: 1px solid black;
+      padding: 0;
+      margin: 0;
+    }
+
+    header{
+      width: 100%;
+      height: 200px;
+      background: url(https://lh3.googleusercontent.com/WqDwhSamu15fauuafzVTYUawZnAwbpqnG7dy13JN833-SIFIFha1G9Y01OjomIh9w3-hGf1h-VbH5C4Bpznkd4YoIoXjwyHe2MBUbYYJfxd9qROymeqFsNylHfz69b52K2iHTY4fhVdwGsClENWSzu8iNlz_bIo1RuLQ_hLWqBnjytlO0jmDtqUZRuki69xC571s_CFSgKLzA9597S3k6CwI9gBiBUccDrvidlwkrrmysDj6k7GP9gzeHK5AH_jA_Fs1dBFv8WpYOgezALBMbUesywX7fBvlqBlQPxkSOI3D8wY1XBHeKHZUR2RxxKGaXkCZPIImeIZmEqEpaqZIIONGAG4lyhBimr446KNOy9RWb18PfvkhWP-Gpp-ThCCijjPODlAiCAtQpasCheaUxSlkgIhxo_q_umukz-A1ZCo35HwZ51D32r1c53Ma5n3sCQ9b35dBjBqEtH8E2SxA4o7Rv17Hwrl1AJBVelxzsXJ42wASs1iSkgH4DYl8xvLbXwTJBwPzoYmHd59iVZI4h-XHuKt-McUoNJKvwSzA-nbYTJsIoOOsvq7A7fXQtFzXmIqAieaWOkVnZ27unw1fuTchvc4OeQqj2iUac5w4=w276-h183-no);
+      background-color: #445e91;
+      background-size: 100% 100%;
+      color: white;
+    }
+
+    .nav{
+	  list-style-type:none;
+      margin: auto;
+    }
+
+    .nav>li{
+        float: left;
+        margin-right: 0px;
+        background-color: #3b4d95;
+        border-radius:0px;
+    }
+
+    .nav>li>a{
+        text-transform: uppercase;
+        color: white;
+    }
+
+    .nav li a{
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nav li a:hover{
+        text-decoration: none;
+        color: black;
+        background-color: #445e91;
+    }
+
+    .nav li{
+        position: relative;
+    }
+
+    .nav li a{
+        padding: 15px;
+        line-height: 20px;
+        display: inline-block;
+    }
+
+    .nav .sub-menu{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 200px;
+        background-color:#C0B7C5;
+        padding: 5px 20px;
+        list-style-type:none;
+
+    }
+
+    .nav li:hover>.sub-menu{
+        display: inline-block;
+        background-color: #3b4d95;
+        width: 400px;
+    }
+
+    .nav>li>.sub-menu{
+        top: 50px;
+        left: 0;
+    }
+
+    .nav ul li a{
+      color: white;
+      background-color: #3b4d95;
+    }
+
+    #menu p{
+      float: right;
+    }
+
+    #menu{
+        background-color: #3b4d95;
+        width: 100%;
+        height: 51px;
+        border: 1px solid black;
+        border-left: none;
+        border-right: none;
+    }
+
+    #list{
+      width: 70%;
+      background-color: #7FFFD4;
+      height: 500px;
+      text-align: center;  
+      font-size: 50px;
+      float: left;
+    }
+
+    #info{
+      width: 30%;
+      height: 500px;
+      background-color: #D3D3D3;
+      float: right;
+    }
+
+    #infotext1{
+      margin-left: 10%;
+      margin-top: 10%;
+      margin-bottom: ;: 10%;
+      width: 40%;
+      height: 400px;
+      background-color: #D2691E;
+      float: left;    
+    }
+
+    #infotext2{
+      margin-right: 10%;
+      margin-top: 10%;
+      margin-bottom: ;: 10%;
+      width: 40%;
+      height: 400px;
+      background-color: green;
+      float: right;
+    }
+
+
+
+</style>
+
+</head>
+
+<body>
+<header>
+<p style="float: left"><a href="http://www.iuh.edu.vn"><img src="https://lh3.googleusercontent.com/iXWv9XYDpHjDq04wQMWlA69aL11H2vTtqIXq1ZCWd1qyjsl2K1mwg4m-T03CO60GknQ3VioMHJNXv-JQufd_MWbcmUBk2iEoBSsgjsWYeK9yXSECbNsANwgnthfhueBtaHI1j9mOVRu4jIdP8XvrUoaEhWGz9xNba0HUi5ic495YAk6CpHT_sg9w8SIOBzRMfne3XUtVvzLLPuYQl5pTDtewOrNgU-M5CzdVEfTHvMtepxFt5GirxHdUZeFlXVzoxTCn3shJWS8iOxN94UZhKbz794QwsDxGvkzd2Cg4MZ_nd1QJ1qwLAH0aseSiZjdgZGjlmwfzE0kGDmAToAgZ7ZHblOfojIEXi9YANSFWvZeioeK4FPIJZx3aNi1dA3VSpTXtcBsj4gXtOmq7eKAK9iZepJlsUHSLH-v0legg2rPX-JvwS6XoX269trOHcxdFWOzlNT9MPItaSiMiVbeGwwhqaVz78DpmJnqClEjW3qZ_SbxfvORsWTPeRQRxJ59vcu6jbfca3KBeo7gNJmVYf1lRlCjGRm-ahBOSBuu1Svy2a9bIqNE1uAKX7Zl2g0T3Xet7HuctZBw09DhPi9o_vPgkboTo9m2QPDnXBenD=w1366-h583-no" style="width: 200px; opacity:0.5"/></a></p>
+<p style="float: right;">User name <input type="button" value="Doi mat khau"/></p>
+</header>
+
+<div id="menu">
+
+<ul class="nav">
+
+<li><a href="http://www.iuh.edu.vn">Trang chu IUH </a></li>
+
+	<li>
+<a href="#">Trang chu</a>
+</li>
+
+<li>
+		<a href="#">Sach</a>
+		</li>
+
+<li>
+<a href="#">Doc gia</a>
+</li>
+
+	<li><a href="#">Tai khoan</a></li>
+
+</ul>
+
+<p><input type="search" placeholder="Search ~"/><input type="submit" value=" Find it !"/></p>
+
+</div>
+
+<div id="list">
+<br/><br/><br/><br/><br/>Noi hien thi danh sach sach trong thu vien
+</div>
+
+<div id="info" style="font-size: 30px">
+<br/><br/><br/>
+      Noi lua chon cach thuc hoat dong (Muon, tra, them, xoa, sua cac doi tuong), moi lua chon se hien thi form nhap rieng
+
+
+</div>
+
+
+</body>
+</html>
+
+</apex:page>
