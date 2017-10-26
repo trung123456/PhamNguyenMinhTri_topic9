@@ -1,0 +1,560 @@
+QLSACH
+<apex:page standardController="Sach__c" extensions="SachController">
+
+<html>
+<head>
+
+<title>Quan ly thu vien</title>
+<meta charset="UTF-8"/>
+
+<style>
+
+    html, body {
+      border: 1px solid black;
+      padding: 0;
+      margin: 0;
+      background-color:none;
+      width: 1500px;
+      height: 1000px;
+    }
+
+    header{
+      width: 100%;
+      height: 200px;
+      background: url(https://garamut.files.wordpress.com/2012/02/books4.jpg);
+      background-color: #445e91;
+      background-size: 100% 100%;
+      color: white;
+    }
+
+    .nav{
+	  list-style-type:none;
+      margin: auto;
+    }
+
+    .nav>li{
+        float: left;
+        margin-right: 0px;
+        background-color: #3b4d95;
+        border-radius:0px;
+    }
+
+    .nav>li>a{
+        text-transform: uppercase;
+        color: white;
+    }
+
+    .nav li a{
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nav li a:hover{
+        text-decoration: none;
+        color: black;
+        background-color: #445e91;
+    }
+
+    .nav li{
+        position: relative;
+    }
+
+    .nav li a{
+        padding: 15px;
+        line-height: 20px;
+        display: inline-block;
+    }
+
+    .nav .sub-menu{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 200px;
+        background-color:#C0B7C5;
+        padding: 5px 20px;
+        list-style-type:none;
+
+    }
+
+    .nav li:hover>.sub-menu{
+        display: inline-block;
+        background-color: #3b4d95;
+        width: 400px;
+    }
+
+    .nav>li>.sub-menu{
+        top: 50px;
+        left: 0;
+    }
+
+    .nav ul li a{
+      color: white;
+      background-color: #3b4d95;
+    }
+
+    #menu p{
+      float: right;
+    }
+
+    #menu{
+        background-color: #3b4d95;
+        width: 100%;
+        height: 51px;
+        border: 1px solid black;
+        border-left: none;
+        border-right: none;
+    }
+
+    #list{
+      width: 600px;
+      background-color: none;
+      height: 745px;
+      text-align: left;
+      font-size: 15px;
+      font-weight: bold;
+      float: left;
+      color: white;
+      border: 3px solid black;
+    }
+
+    #list button{
+      width: 100px;
+      height: 30px;
+      border-radius: 10px;
+      margin: 10px;
+      background-color: blue;
+    }
+
+    button:hover{
+	opacity: 0.4;  
+	color : blue;
+    }
+
+    .textbox{
+      width: 200px;
+      height: 25px;
+      float: right;
+    }
+
+    #listimg{
+      width: auto;
+      height: 565px;
+      background: url(https://hemapen.files.wordpress.com/2015/05/flying-letters11.jpg);
+      background-size: 100% 100%;
+    }
+
+    #info{
+      width: 891px;
+      height: 745px;
+      border: 3px solid black;
+      border-left: 0px;
+      background-color: navy;
+      float: right;
+    }
+
+
+
+</style>
+
+</head>
+
+<body>
+<header>
+<p style="float: left"><a href="http://www.iuh.edu.vn"><img src="https://lh3.googleusercontent.com/iXWv9XYDpHjDq04wQMWlA69aL11H2vTtqIXq1ZCWd1qyjsl2K1mwg4m-T03CO60GknQ3VioMHJNXv-JQufd_MWbcmUBk2iEoBSsgjsWYeK9yXSECbNsANwgnthfhueBtaHI1j9mOVRu4jIdP8XvrUoaEhWGz9xNba0HUi5ic495YAk6CpHT_sg9w8SIOBzRMfne3XUtVvzLLPuYQl5pTDtewOrNgU-M5CzdVEfTHvMtepxFt5GirxHdUZeFlXVzoxTCn3shJWS8iOxN94UZhKbz794QwsDxGvkzd2Cg4MZ_nd1QJ1qwLAH0aseSiZjdgZGjlmwfzE0kGDmAToAgZ7ZHblOfojIEXi9YANSFWvZeioeK4FPIJZx3aNi1dA3VSpTXtcBsj4gXtOmq7eKAK9iZepJlsUHSLH-v0legg2rPX-JvwS6XoX269trOHcxdFWOzlNT9MPItaSiMiVbeGwwhqaVz78DpmJnqClEjW3qZ_SbxfvORsWTPeRQRxJ59vcu6jbfca3KBeo7gNJmVYf1lRlCjGRm-ahBOSBuu1Svy2a9bIqNE1uAKX7Zl2g0T3Xet7HuctZBw09DhPi9o_vPgkboTo9m2QPDnXBenD=w1366-h583-no" style="width: 200px; opacity:0.7"/></a></p>
+</header>
+
+<div id="menu">
+
+<ul class="nav">
+
+<li><a href="http://www.iuh.edu.vn">Trang chu IUH </a></li>
+
+<li>
+		<a href="https://ptud2017-dev-ed--c.ap5.visual.force.com/apex/QLSACH?core.apexpages.request.devconsole=1">Quan ly sach</a>
+		</li>
+
+<li>
+<a href="https://ptud2017-dev-ed--c.ap5.visual.force.com/apex/QLTHUEMUON?core.apexpages.request.devconsole=1">Quan ly thue/muon</a>
+</li>
+
+
+</ul>
+
+</div>
+
+<div id="list">
+<apex:form >
+
+<apex:pageBlock >
+<apex:pageBlockSection columns="1">
+<apex:inputField value="{! Sach__c.Name }"/>
+<apex:inputField value="{! Sach__c.ID__c }"/>
+<apex:inputField value="{! Sach__c.SoLuong__c }"/>
+<apex:inputField value="{! Sach__c.LoaiSach__c }"/>
+</apex:pageBlockSection>
+
+
+<apex:commandButton action="{! save }" value="Them sach" />
+</apex:pageBlock>
+
+</apex:form>
+
+<div id="listimg">
+
+</div>
+
+</div>
+
+<div id="info" style="font-size: 15px">
+<apex:form id="theForm">
+
+<apex:pageBlock title="Danh sach sach trong thu vien" id="ds">
+<apex:pageblocktable id="bookrec" rendered="{!showSachs}" value="{!RecordFetching}" var="fetch">
+
+
+<apex:column value="{!fetch.ID__c}"/>
+<apex:column value="{!fetch.Name}"/>
+<apex:column value="{!fetch.SoLuong__c}"/>
+<apex:column value="{!fetch.LoaiSach__c}"/>
+
+<apex:column >
+<apex:outputLink value="{! URLFOR($Action.Sach__c.Edit, fetch.Id) }">
+                        Edit
+</apex:outputLink>
+&nbsp;
+
+<apex:outputLink value="{! URLFOR($Action.Sach__c.Delete, fetch.Id) }">
+                        Del
+</apex:outputLink>
+</apex:column>
+
+</apex:pageblocktable>
+</apex:pageBlock>
+	</apex:form>
+
+</div>
+
+
+</body>
+</html>
+
+</apex:page>
+
+
+
+
+SachController
+public class SachController {
+    public List<Sach__c> sach;
+    public Boolean showSachs{get;set;}
+
+    public SachController(ApexPages.StandardController controller){
+        showSachs = true;
+    }
+
+    Public PageReference GetRecordPage(){
+
+        showSachs = true;
+        GetRecordFetching();
+
+        return null;
+    }    
+
+   Public List<Sach__c> GetRecordFetching(){
+
+       sach =  new List<Sach__c>();
+
+       List<Sach__c> listitem = [Select Name, ID__c, SoLuong__c, LoaiSach__c From Sach__c Order By ID__c];
+
+        if(listitem.size() > 0)
+        {
+                sach.addall(listitem);        
+        }    
+                  return sach;
+   }
+
+
+}
+
+
+
+QLNGUOIMUON
+<apex:page standardController="NguoiMuon__c" extensions="NguoiMuonController">
+
+<html>
+<head>
+
+<title>Quan ly thu vien</title>
+<meta charset="UTF-8"/>
+
+<style>
+
+    html, body {
+      border: 1px solid black;
+      padding: 0;
+      margin: 0;
+      background-color:none;
+      width: 1500px;
+      height: 1000px;
+    }
+
+    header{
+      width: 100%;
+      height: 200px;
+      background: url(https://garamut.files.wordpress.com/2012/02/books4.jpg);
+      background-color: #445e91;
+      background-size: 100% 100%;
+      color: white;
+    }
+
+    .nav{
+	  list-style-type:none;
+      margin: auto;
+    }
+
+    .nav>li{
+        float: left;
+        margin-right: 0px;
+        background-color: #3b4d95;
+        border-radius:0px;
+    }
+
+    .nav>li>a{
+        text-transform: uppercase;
+        color: white;
+    }
+
+    .nav li a{
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nav li a:hover{
+        text-decoration: none;
+        color: black;
+        background-color: #445e91;
+    }
+
+    .nav li{
+        position: relative;
+    }
+
+    .nav li a{
+        padding: 15px;
+        line-height: 20px;
+        display: inline-block;
+    }
+
+    .nav .sub-menu{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 200px;
+        background-color:#C0B7C5;
+        padding: 5px 20px;
+        list-style-type:none;
+
+    }
+
+    .nav li:hover>.sub-menu{
+        display: inline-block;
+        background-color: #3b4d95;
+        width: 400px;
+    }
+
+    .nav>li>.sub-menu{
+        top: 50px;
+        left: 0;
+    }
+
+    .nav ul li a{
+      color: white;
+      background-color: #3b4d95;
+    }
+
+    #menu p{
+      float: right;
+    }
+
+    #menu{
+        background-color: #3b4d95;
+        width: 100%;
+        height: 51px;
+        border: 1px solid black;
+        border-left: none;
+        border-right: none;
+    }
+
+    #list{
+      width: 600px;
+      background-color: none;
+      height: 745px;
+      text-align: left;
+      font-size: 15px;
+      font-weight: bold;
+      float: left;
+      color: white;
+      border: 3px solid black;
+    }
+
+    #list button{
+      width: 100px;
+      height: 30px;
+      border-radius: 10px;
+      margin: 10px;
+      background-color: blue;
+    }
+
+    button:hover{
+	opacity: 0.4;  
+	color : blue;
+    }
+
+    .textbox{
+      width: 200px;
+      height: 25px;
+      float: right;
+    }
+
+    #listimg{
+      width: auto;
+      height: 518px;
+      background: url(https://hemapen.files.wordpress.com/2015/05/flying-letters11.jpg);
+      background-size: 100% 100%;
+    }
+
+    #info{
+      width: 891px;
+      height: 745px;
+      border: 3px solid black;
+      border-left: 0px;
+      background-color: navy;
+      float: right;
+    }
+
+
+
+</style>
+
+</head>
+
+<body>
+<header>
+<p style="float: left"><a href="http://www.iuh.edu.vn"><img src="https://lh3.googleusercontent.com/iXWv9XYDpHjDq04wQMWlA69aL11H2vTtqIXq1ZCWd1qyjsl2K1mwg4m-T03CO60GknQ3VioMHJNXv-JQufd_MWbcmUBk2iEoBSsgjsWYeK9yXSECbNsANwgnthfhueBtaHI1j9mOVRu4jIdP8XvrUoaEhWGz9xNba0HUi5ic495YAk6CpHT_sg9w8SIOBzRMfne3XUtVvzLLPuYQl5pTDtewOrNgU-M5CzdVEfTHvMtepxFt5GirxHdUZeFlXVzoxTCn3shJWS8iOxN94UZhKbz794QwsDxGvkzd2Cg4MZ_nd1QJ1qwLAH0aseSiZjdgZGjlmwfzE0kGDmAToAgZ7ZHblOfojIEXi9YANSFWvZeioeK4FPIJZx3aNi1dA3VSpTXtcBsj4gXtOmq7eKAK9iZepJlsUHSLH-v0legg2rPX-JvwS6XoX269trOHcxdFWOzlNT9MPItaSiMiVbeGwwhqaVz78DpmJnqClEjW3qZ_SbxfvORsWTPeRQRxJ59vcu6jbfca3KBeo7gNJmVYf1lRlCjGRm-ahBOSBuu1Svy2a9bIqNE1uAKX7Zl2g0T3Xet7HuctZBw09DhPi9o_vPgkboTo9m2QPDnXBenD=w1366-h583-no" style="width: 200px; opacity:0.7"/></a></p>
+</header>
+
+<div id="menu">
+
+<ul class="nav">
+
+<li><a href="http://www.iuh.edu.vn">Trang chu IUH </a></li>
+
+<li>
+		<a href="https://ptud2017-dev-ed--c.ap5.visual.force.com/apex/QLSACH?core.apexpages.request.devconsole=1">Quan ly sach</a>
+		</li>
+
+<li>
+<a href="https://ptud2017-dev-ed--c.ap5.visual.force.com/apex/QLTHUEMUON?core.apexpages.request.devconsole=1">Quan ly thue/muon</a>
+</li>
+
+
+</ul>
+
+</div>
+
+<div id="list">
+<apex:form >
+
+<apex:pageBlock >
+<apex:pageBlockSection columns="1">
+<apex:inputField value="{! NguoiMuon__c.MSSV__c }"/>
+<apex:inputField value="{! NguoiMuon__c.Name }"/>
+<apex:inputField value="{! NguoiMuon__c.TenSachMuon__c }"/>
+<apex:inputField value="{! NguoiMuon__c.NgayMuon__c }"/>
+<apex:inputField value="{! NguoiMuon__c.NgayPhaiTra__c }"/>
+</apex:pageBlockSection>
+
+
+<apex:commandButton action="{! save }" value="Them nguoi muon" />
+</apex:pageBlock>
+
+</apex:form>
+
+<div id="listimg">
+
+</div>
+
+</div>
+
+<div id="info" style="font-size: 15px">
+<apex:form id="theForm">
+
+<apex:pageBlock title="Danh sach nguoi muon" id="ds">
+<apex:pageblocktable id="bookrec" rendered="{!showNguoiMuons}" value="{!RecordFetching}" var="fetch">
+<apex:column >
+<apex:outputLink value="{! URLFOR($Action.NguoiMuon__c.Edit, fetch.Id) }">
+                        Edit
+</apex:outputLink>
+&nbsp;
+
+<apex:outputLink value="{! URLFOR($Action.NguoiMuon__c.Delete, fetch.Id) }">
+                        Del
+</apex:outputLink>
+</apex:column>
+
+<apex:column value="{!fetch.MSSV__c}"/>
+<apex:column value="{!fetch.Name}"/>
+<apex:column value="{!fetch.TenSachMuon__c}"/>
+<apex:column value="{!fetch.NgayMuon__c}"/>
+<apex:column value="{!fetch.NgayPhaiTra__c}"/>
+</apex:pageblocktable>
+</apex:pageBlock>
+	</apex:form>
+
+</div>
+
+
+</body>
+</html>
+
+</apex:page>
+
+
+NGUOIMUONCONTROLLER
+public class NguoiMuonController {
+    public List<NguoiMuon__c> nguoimuon;
+    public Boolean showNguoiMuons{get;set;}
+
+    public NguoiMuonController(ApexPages.StandardController controller){
+        showNguoiMuons = true;
+    }
+
+    Public PageReference GetRecordPage(){
+
+        showNguoiMuons = true;
+        GetRecordFetching();
+
+        return null;
+    }    
+
+   Public List<NguoiMuon__c> GetRecordFetching(){
+
+       nguoimuon =  new List<NguoiMuon__c>();
+
+       List<NguoiMuon__c> listitem = [Select Name, MSSV__c, TenSachMuon__c, NgayMuon__c, NgayPhaiTra__c From NguoiMuon__c Order By Name];
+
+        if(listitem.size() > 0)
+        {
+                nguoimuon.addall(listitem);        
+        }    
+                  return nguoimuon;
+   }
+
+
+}
+
+
+
+
