@@ -1,0 +1,704 @@
+---------------------------------------------------------QLSACH.vfp-----------------------------------------------
+
+
+
+<apex:page standardController="Sach__c" extensions="SachController">
+    
+      <html>
+<head>
+  
+  <title>Quan ly thu vien</title>
+  <meta charset="UTF-8"/>
+  
+  <style>
+    
+    html, body {
+      border: 1px solid black;
+      padding: 0;
+      margin: 0;
+      background-color:none;
+      width: 1500px;
+      height: 1000px;
+    }
+   
+    header{
+      width: 100%;
+      height: 200px;
+      background: url(https://garamut.files.wordpress.com/2012/02/books4.jpg);
+      background-color: #445e91;
+      background-size: 100% 100%;
+      color: white;
+    }
+    
+    .nav{
+	  list-style-type:none;
+      margin: auto;
+    }
+
+    .nav>li{
+        float: left;
+        margin-right: 0px;
+        background-color: #3b4d95;
+        border-radius:0px;
+    }
+
+    .nav>li>a{
+        text-transform: uppercase;
+        color: white;
+    }
+
+    .nav li a{
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nav li a:hover{
+        text-decoration: none;
+        color: black;
+        background-color: #445e91;
+    }
+
+    .nav li{
+        position: relative;
+    }
+
+    .nav li a{
+        padding: 15px;
+        line-height: 20px;
+        display: inline-block;
+    }
+
+    .nav .sub-menu{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 200px;
+        background-color:#C0B7C5;
+        padding: 5px 20px;
+        list-style-type:none;
+        
+    }
+
+    .nav li:hover>.sub-menu{
+        display: inline-block;
+        background-color: #3b4d95;
+        width: 400px;
+    }
+
+    .nav>li>.sub-menu{
+        top: 50px;
+        left: 0;
+    }
+    
+    .nav ul li a{
+      color: white;
+      background-color: #3b4d95;
+    }
+    
+    #menu p{
+      float: right;
+    }
+    
+    #menu{
+        background-color: #3b4d95;
+        width: 100%;
+        height: 51px;
+        border: 1px solid black;
+        border-left: none;
+        border-right: none;
+    }
+    
+    #list{
+      width: 600px;
+      background-color: none;
+      height: 745px;
+      text-align: left;
+      font-size: 15px;
+      font-weight: bold;
+      float: left;
+      color: white;
+      border: 3px solid black;
+    }
+      
+    #list button{
+      width: 100px;
+      height: 30px;
+      border-radius: 10px;
+      margin: 10px;
+      background-color: blue;
+    }
+    
+    button:hover{
+    	opacity: 0.4;  
+      	color : blue;
+    }
+      
+    .textbox{
+      width: 200px;
+      height: 25px;
+      float: right;
+    }
+    
+    #listimg{
+      width: auto;
+      height: 427px;
+      background: url(http://2.bp.blogspot.com/-6KHPtNvtglw/Uzq9N3nFNOI/AAAAAAAAAiI/2mpiwM6Bzts/s1600/open+book.jpg);
+      background-size: 100% 100%;
+    }
+    
+    #info{
+      width: 891px;
+      height: 745px;
+      border: 3px solid black;
+      border-left: 0px;
+      background-color: navy;
+      float: right;
+    }
+    
+ 
+    
+  </style>
+  
+</head>
+  
+<body>
+  <header>
+      <p style="float: left"><a href="http://www.iuh.edu.vn"><img src="https://lh3.googleusercontent.com/iXWv9XYDpHjDq04wQMWlA69aL11H2vTtqIXq1ZCWd1qyjsl2K1mwg4m-T03CO60GknQ3VioMHJNXv-JQufd_MWbcmUBk2iEoBSsgjsWYeK9yXSECbNsANwgnthfhueBtaHI1j9mOVRu4jIdP8XvrUoaEhWGz9xNba0HUi5ic495YAk6CpHT_sg9w8SIOBzRMfne3XUtVvzLLPuYQl5pTDtewOrNgU-M5CzdVEfTHvMtepxFt5GirxHdUZeFlXVzoxTCn3shJWS8iOxN94UZhKbz794QwsDxGvkzd2Cg4MZ_nd1QJ1qwLAH0aseSiZjdgZGjlmwfzE0kGDmAToAgZ7ZHblOfojIEXi9YANSFWvZeioeK4FPIJZx3aNi1dA3VSpTXtcBsj4gXtOmq7eKAK9iZepJlsUHSLH-v0legg2rPX-JvwS6XoX269trOHcxdFWOzlNT9MPItaSiMiVbeGwwhqaVz78DpmJnqClEjW3qZ_SbxfvORsWTPeRQRxJ59vcu6jbfca3KBeo7gNJmVYf1lRlCjGRm-ahBOSBuu1Svy2a9bIqNE1uAKX7Zl2g0T3Xet7HuctZBw09DhPi9o_vPgkboTo9m2QPDnXBenD=w1366-h583-no" style="width: 200px; opacity:0.7"/></a></p>
+  </header>
+  
+  <div id="menu">
+    
+    <ul class="nav">
+         
+       <li><a href="http://www.iuh.edu.vn">Trang chu IUH </a></li>
+         
+        <li>
+		  <a href="https://ptud2017-dev-ed--c.ap5.visual.force.com/apex/QLSACH?core.apexpages.request.devconsole=1">Quan ly sach</a>
+		</li>
+         
+        <li>
+            <a href="https://ptud2017-dev-ed--c.ap5.visual.force.com/apex/QLTHUEMUON?core.apexpages.request.devconsole=1">Quan ly thue muon</a>
+        </li>
+         
+         
+    </ul>
+    
+  </div>
+  
+  <div id="list"> 
+        <apex:form > 
+			<p style="text-align: center; color: navy; font-size: 23px;">
+           	 QUAN LY SACH
+        	 </p>
+            <apex:pageBlock>
+                <apex:pageBlockSection columns="2" >
+                    <apex:outputLabel value="Ma sach" style="color: navy"></apex:outputLabel>
+                    <apex:inputText value="{!masach}" style="width: 300px; height: 25px; font-size: 18px" /> 
+                    <apex:outputLabel value="Ten sach" style="color: navy"></apex:outputLabel>
+                    <apex:inputText value="{!tensach}" style="width: 300px; height: 25px; font-size: 18px" />
+                    <apex:outputLabel value=So luong" style="color: navy"></apex:outputLabel>
+                    <apex:inputText value="{!soluong}" style="width: 300px; height: 25px; font-size: 18px"/>
+                    <apex:outputLabel value="Loai sach" style="color: navy"></apex:outputLabel>
+                    <apex:inputText value="{!loaisach}" style="width: 300px; height: 25px; font-size: 18px"/>    
+                </apex:pageBlockSection>          
+                <br/>
+                <table width="560px" align="center">
+                    <tr>
+                		<td align="center"><apex:commandButton action="{!themsach }" value="Them" style="font-size: 15px; width:120px; height:40px; color:white; background: #3b4d95; border: 1px solid black"/></td>  
+               	 		<td align="center"><apex:commandButton action="{!xoasach}" value="Xoa" style="font-size: 15px; width:120px; height:40px; color:white; background: #3b4d95; border: 1px solid black"/></td>
+                        <td align="center"><apex:commandButton action="{!suasach}" value="Sua" style="font-size: 15px; width:120px; height:40px; color:white; background: #3b4d95; border: 1px solid black"/></td>
+                    </tr>
+                </table>
+                 
+            </apex:pageBlock>
+                    
+        </apex:form>   
+      
+    <div id="listimg">
+      
+    </div>
+   
+  </div>
+  
+  <div id="info" style="font-size: 18px">
+     <apex:form id="theForm">
+      	<p style="text-align: center; color: white; font-size: 23px">
+            ~ Danh sach sach trong thu vien ~
+         </p>
+        <apex:pageBlock id="ds" >
+            <apex:pageblocktable id="bookrec" rendered="{!showSachs}" value="{!RecordFetching}" var="fetch">
+                
+                <apex:column value="{!fetch.ID__c}"/>
+                <apex:column value="{!fetch.Name}"/>
+                <apex:column value="{!fetch.SoLuong__c}"/>
+                <apex:column value="{!fetch.LoaiSach__c}"/>
+                
+                <apex:column >
+                    <apex:outputLink value="{! URLFOR($Action.Sach__c.Edit, fetch.Id) }">
+                        Edit
+                    </apex:outputLink>
+                    &nbsp;
+                    
+                    <apex:outputLink value="{! URLFOR($Action.Sach__c.Delete, fetch.Id) }">
+                        Del
+                    </apex:outputLink>
+                </apex:column>
+                
+            </apex:pageblocktable>  
+        </apex:pageBlock>
+   	 </apex:form>  
+    
+  </div>
+  
+
+</body>
+</html>
+  
+</apex:page>
+
+
+
+
+---------------------------------------------------------SachController.apxc-----------------------------------------------------------
+
+public class SachController {
+    public List<Sach__c> sach;
+    public Boolean showSachs{get;set;}
+    public decimal masach{get;set;}
+    public string tensach{get;set;}
+    public decimal soluong{get;set;}
+    public string loaisach{get;set;}
+
+	public void themsach()
+    {
+                Sach__c s= new Sach__c();
+                
+                s.ID__c = masach;
+                s.Name = tensach;
+                s.SoLuong__c = soluong;
+                s.LoaiSach__c = loaisach;
+                insert s;     	
+     }
+    
+    public void xoasach()
+    {
+                Sach__c s= new Sach__c();
+        
+                s.ID__c = masach;
+                s.Name = tensach;
+                s.SoLuong__c = soluong;
+                s.LoaiSach__c = loaisach;
+                           
+        		List<Sach__c> xoa= [Select ID__c, Name, SoLuong__c, LoaiSach__c From Sach__c where ID__c = :s.ID__c];
+        		delete xoa;
+     }
+    
+    public void suasach()
+    {
+                Sach__c s= new Sach__c();
+        
+                s.ID__c = masach;
+                s.Name = tensach;
+                s.SoLuong__c = soluong;
+                s.LoaiSach__c = loaisach;              
+        
+        		List<Sach__c> sua= [Select ID__c From Sach__c where ID__c = :s.ID__c];
+        		delete sua;
+        		insert s;
+     }
+    
+    public SachController(ApexPages.StandardController controller){
+        showSachs = true;
+    }
+    
+    Public PageReference GetRecordPage(){
+
+        showSachs = true;
+        GetRecordFetching();
+    
+        return null;
+    }    
+        
+   Public List<Sach__c> GetRecordFetching(){
+
+       sach =  new List<Sach__c>();
+    
+       List<Sach__c> listitem = [Select Name, ID__c, SoLuong__c, LoaiSach__c From Sach__c Order By ID__c];
+    
+        if(listitem.size() > 0)
+        {
+                sach.addall(listitem);        
+        }    
+                  return sach;
+   }
+    
+   
+}
+
+
+
+
+
+
+---------------------------------------------------------QLTHUEMUON.vfp-----------------------------------------------------------
+
+
+<apex:page standardController="NguoiMuon__c" extensions="NguoiMuonController">
+    
+      <html>
+<head>
+  
+  <title>Quan ly thu vien</title>
+  <meta charset="UTF-8"/>
+  
+  <style>
+    
+    html, body {
+      border: 1px solid black;
+      padding: 0;
+      margin: 0;
+      background-color:none;
+      width: 1500px;
+      height: 1000px;
+    }
+   
+    header{
+      width: 100%;
+      height: 200px;
+      background: url(https://garamut.files.wordpress.com/2012/02/books4.jpg);
+      background-color: #445e91;
+      background-size: 100% 100%;
+      color: white;
+    }
+    
+    .nav{
+	  list-style-type:none;
+      margin: auto;
+    }
+
+    .nav>li{
+        float: left;
+        margin-right: 0px;
+        background-color: #3b4d95;
+        border-radius:0px;
+    }
+
+    .nav>li>a{
+        text-transform: uppercase;
+        color: white;
+    }
+
+    .nav li a{
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nav li a:hover{
+        text-decoration: none;
+        color: black;
+        background-color: #445e91;
+    }
+
+    .nav li{
+        position: relative;
+    }
+
+    .nav li a{
+        padding: 15px;
+        line-height: 20px;
+        display: inline-block;
+    }
+
+    .nav .sub-menu{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 200px;
+        background-color:#C0B7C5;
+        padding: 5px 20px;
+        list-style-type:none;
+        
+    }
+
+    .nav li:hover>.sub-menu{
+        display: inline-block;
+        background-color: #3b4d95;
+        width: 400px;
+    }
+
+    .nav>li>.sub-menu{
+        top: 50px;
+        left: 0;
+    }
+    
+    .nav ul li a{
+      color: white;
+      background-color: #3b4d95;
+    }
+    
+    #menu p{
+      float: right;
+    }
+    
+    #menu{
+        background-color: #3b4d95;
+        width: 100%;
+        height: 51px;
+        border: 1px solid black;
+        border-left: none;
+        border-right: none;
+    }
+    
+    #list{
+      width: 600px;
+      background-color: none;
+      height: 745px;
+      text-align: left;
+      font-size: 15px;
+      font-weight: bold;
+      float: left;
+      color: white;
+      border: 3px solid black;
+    }
+      
+    #list button{
+      width: 100px;
+      height: 30px;
+      border-radius: 10px;
+      margin: 10px;
+      background-color: blue;
+    }
+    
+    button:hover{
+    	opacity: 0.4;  
+      	color : blue;
+    }
+      
+    .textbox{
+      width: 200px;
+      height: 25px;
+      float: right;
+    }
+    
+    #listimg{
+      width: auto;
+      border-top: 4px solid black;
+      height: 383px;
+      background: url(data:image/jpeg;base64,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);
+      background-size: 100% 100%;
+    }
+    
+    #info{
+      width: 891px;
+      height: 745px;
+      border: 3px solid black;
+      border-left: 0px;
+      background-color: navy;
+      float: right;
+    }
+    
+ 
+    
+  </style>
+  
+</head>
+  
+<body>
+  <header>
+      <p style="float: left"><a href="http://www.iuh.edu.vn"><img src="https://lh3.googleusercontent.com/iXWv9XYDpHjDq04wQMWlA69aL11H2vTtqIXq1ZCWd1qyjsl2K1mwg4m-T03CO60GknQ3VioMHJNXv-JQufd_MWbcmUBk2iEoBSsgjsWYeK9yXSECbNsANwgnthfhueBtaHI1j9mOVRu4jIdP8XvrUoaEhWGz9xNba0HUi5ic495YAk6CpHT_sg9w8SIOBzRMfne3XUtVvzLLPuYQl5pTDtewOrNgU-M5CzdVEfTHvMtepxFt5GirxHdUZeFlXVzoxTCn3shJWS8iOxN94UZhKbz794QwsDxGvkzd2Cg4MZ_nd1QJ1qwLAH0aseSiZjdgZGjlmwfzE0kGDmAToAgZ7ZHblOfojIEXi9YANSFWvZeioeK4FPIJZx3aNi1dA3VSpTXtcBsj4gXtOmq7eKAK9iZepJlsUHSLH-v0legg2rPX-JvwS6XoX269trOHcxdFWOzlNT9MPItaSiMiVbeGwwhqaVz78DpmJnqClEjW3qZ_SbxfvORsWTPeRQRxJ59vcu6jbfca3KBeo7gNJmVYf1lRlCjGRm-ahBOSBuu1Svy2a9bIqNE1uAKX7Zl2g0T3Xet7HuctZBw09DhPi9o_vPgkboTo9m2QPDnXBenD=w1366-h583-no" style="width: 200px; opacity:0.7"/></a></p>
+  </header>
+  
+  <div id="menu">
+    
+    <ul class="nav">
+         
+       <li><a href="http://www.iuh.edu.vn">Trang chu IUH </a></li>
+         
+        <li>
+		  <a href="https://ptud2017-dev-ed--c.ap5.visual.force.com/apex/QLSACH?core.apexpages.request.devconsole=1">Quan ly sach</a>
+		</li>
+         
+        <li>
+            <a href="https://ptud2017-dev-ed--c.ap5.visual.force.com/apex/QLTHUEMUON?core.apexpages.request.devconsole=1">Quan ly thue muon</a>
+        </li>
+         
+         
+    </ul>
+    
+  </div>
+  
+  <div id="list"> 
+        <apex:form > 
+			<p style="text-align: center; color: navy; font-size: 23px;">
+           	 QUAN LY THUE MUON	
+        	 </p>
+            <apex:pageBlock >
+                <apex:pageBlockSection columns="2">
+                    <apex:outputLabel value="Ma sinh vien" style="color: navy"></apex:outputLabel>
+                    <apex:inputText value="{!mssv}" style="width: 300px; height: 25px; font-size: 18px"/>  
+                    <apex:outputLabel value="Ten nguoi muon" style="color: navy"></apex:outputLabel>
+                    <apex:inputText value="{!tennguoimuon}" style="width: 300px; height: 25px; font-size: 18px"/>
+                    <apex:outputLabel value="Ngay muon" style="color: navy"></apex:outputLabel>
+                    <apex:inputText value="{!ngaymuon}" style="width: 300px; height: 25px; font-size: 18px"/>
+                    <apex:outputLabel value="Ngay tra" style="color: navy"></apex:outputLabel>
+                    <apex:inputText value="{!ngayphaitra}" style="width: 300px; height: 25px; font-size: 18px"/>  
+                    <apex:outputLabel value="Ten sach muon" style="color: navy"></apex:outputLabel>
+                    <apex:inputText value="{!tensachmuon}" style="width: 300px; height: 25px; font-size: 18px"/>    
+                </apex:pageBlockSection>          
+                <br/>
+                <table width="560px" align="center">
+                    <tr>
+                		<td align="center"><apex:commandButton action="{!themnguoimuon }" value="Them" style="font-size: 15px; width:120px; height:40px; color:white; background: #3b4d95; border: 1px solid black"/></td>  
+               	 		<td align="center"><apex:commandButton action="{!xoanguoimuon}" value="Xoa" style="font-size: 15px; width:120px; height:40px; color:white; background: #3b4d95; border: 1px solid black"/></td>
+                        <td align="center"><apex:commandButton action="{!suanguoimuon}" value="Sua" style="font-size: 15px; width:120px; height:40px; color:white; background: #3b4d95; border: 1px solid black"/></td>
+                    </tr>
+                </table>      
+            </apex:pageBlock>
+                    
+        </apex:form>   
+      
+    <div id="listimg">
+      
+    </div>
+   
+  </div>
+  
+  <div id="info" style="font-size: 18px">
+     <apex:form id="theForm">
+      	<p style="text-align: center; color: white; font-size: 23px">
+            ~ Danh sach nguoi thue/muon ~
+         </p>
+        <apex:pageBlock id="ds">
+            <apex:pageblocktable id="bookrec" rendered="{!showNguoiMuons}" value="{!RecordFetching}" var="fetch">
+               
+                <apex:column value="{!fetch.MSSV__c}"/>
+                <apex:column value="{!fetch.Name}"/>
+                <apex:column value="{!fetch.TenSachMuon__c}"/>
+                <apex:column value="{!fetch.NgayMuon__c}"/>
+                <apex:column value="{!fetch.NgayPhaiTra__c}"/>
+                
+                <apex:column >
+                    <apex:outputLink value="{! URLFOR($Action.NguoiMuon__c.Edit, fetch.Id) }">
+                        Edit
+                    </apex:outputLink>
+                    &nbsp;
+                    
+                    <apex:outputLink value="{! URLFOR($Action.NguoiMuon__c.Delete, fetch.Id) }">
+                        Del
+                    </apex:outputLink>
+                </apex:column>
+                
+            </apex:pageblocktable>  
+        </apex:pageBlock>
+   	 </apex:form>  
+    
+  </div>
+  
+
+</body>
+</html>
+  
+</apex:page>
+
+
+
+
+
+---------------------------------------------------------NguoiMuonController.apxc-----------------------------------------------------------
+
+
+
+public class NguoiMuonController {
+    public List<NguoiMuon__c> nguoimuon;
+    public Boolean showNguoiMuons{get;set;}
+    public string mssv{get;set;}
+    public date ngaymuon{get;set;}
+    public date ngayphaitra{get;set;}
+    public string tennguoimuon{get;set;}
+    public string tensachmuon{get;set;}
+    
+    public void themnguoimuon()
+    {
+                NguoiMuon__c s= new NguoiMuon__c();
+                
+                s.MSSV__c = mssv;
+                s.NgayMuon__c = ngaymuon;
+                s.NgayPhaiTra__c = ngayphaitra;
+                s.Name = tennguoimuon;
+        		s.TenSachMuon__c = tensachmuon;
+                insert s;     	
+    }
+    
+    public void xoanguoimuon()
+    {
+                NguoiMuon__c s= new NguoiMuon__c();
+                
+                s.MSSV__c = mssv;
+                s.NgayMuon__c = ngaymuon;
+                s.NgayPhaiTra__c = ngayphaitra;
+                s.Name = tennguoimuon;
+        		s.TenSachMuon__c = tensachmuon;
+                
+        		List<NguoiMuon__c> xoa= [Select MSSV__c, NgayMuon__c, NgayPhaiTra__c, Name, TenSachMuon__c From NguoiMuon__c where MSSV__c = :s.MSSV__c];
+        		delete xoa;
+     }
+    
+    public void suanguoimuon()
+    {
+                NguoiMuon__c s= new NguoiMuon__c();
+                
+                s.MSSV__c = mssv;
+                s.NgayMuon__c = ngaymuon;
+                s.NgayPhaiTra__c = ngayphaitra;
+                s.Name = tennguoimuon;
+        		s.TenSachMuon__c = tensachmuon;
+                
+        		List<NguoiMuon__c> xoa= [Select MSSV__c From NguoiMuon__c where MSSV__c = :s.MSSV__c];
+        		delete xoa;
+        		insert s;
+     }
+    
+    public NguoiMuonController(ApexPages.StandardController controller){
+        showNguoiMuons = true;
+    }
+    
+    Public PageReference GetRecordPage(){
+
+        showNguoiMuons = true;
+        GetRecordFetching();
+    
+        return null;
+    }    
+        
+   Public List<NguoiMuon__c> GetRecordFetching(){
+
+       nguoimuon =  new List<NguoiMuon__c>();
+    
+       List<NguoiMuon__c> listitem = [Select Name, MSSV__c, TenSachMuon__c, NgayMuon__c, NgayPhaiTra__c From NguoiMuon__c Order By Name];
+    
+        if(listitem.size() > 0)
+        {
+                nguoimuon.addall(listitem);        
+        }    
+                  return nguoimuon;
+   }
+    
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
